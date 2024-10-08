@@ -62,6 +62,7 @@
             tbxSenha.Name = "tbxSenha";
             tbxSenha.Size = new Size(318, 27);
             tbxSenha.TabIndex = 2;
+            tbxSenha.UseSystemPasswordChar = true;
             tbxSenha.TextChanged += tbxSenha_TextChanged;
             // 
             // tbxUsuario

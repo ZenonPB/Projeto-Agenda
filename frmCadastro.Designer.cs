@@ -58,6 +58,7 @@
             tbxNome.Name = "tbxNome";
             tbxNome.Size = new Size(365, 27);
             tbxNome.TabIndex = 2;
+            tbxNome.TextChanged += tbxNome_TextChanged;
             // 
             // tbxUsuario
             // 
@@ -65,6 +66,7 @@
             tbxUsuario.Name = "tbxUsuario";
             tbxUsuario.Size = new Size(365, 27);
             tbxUsuario.TabIndex = 4;
+            tbxUsuario.TextChanged += tbxUsuario_TextChanged;
             // 
             // lblUsuario
             // 
@@ -82,6 +84,7 @@
             tbxTelefone.Name = "tbxTelefone";
             tbxTelefone.Size = new Size(365, 27);
             tbxTelefone.TabIndex = 6;
+            tbxTelefone.TextChanged += tbxTelefone_TextChanged;
             // 
             // lblTelefone
             // 
@@ -99,6 +102,7 @@
             tbxConfirm.Name = "tbxConfirm";
             tbxConfirm.Size = new Size(365, 27);
             tbxConfirm.TabIndex = 8;
+            tbxConfirm.TextChanged += tbxConfirm_TextChanged;
             // 
             // lblConfirm
             // 
@@ -116,6 +120,7 @@
             tbxSenha.Name = "tbxSenha";
             tbxSenha.Size = new Size(365, 27);
             tbxSenha.TabIndex = 10;
+            tbxSenha.TextChanged += tbxSenha_TextChanged;
             // 
             // lblSenha
             // 
@@ -129,6 +134,7 @@
             // 
             // btnCadastrar
             // 
+            btnCadastrar.Enabled = false;
             btnCadastrar.Location = new Point(40, 429);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(168, 59);
@@ -144,6 +150,7 @@
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // frmCadastro
             // 

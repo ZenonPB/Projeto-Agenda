@@ -16,5 +16,47 @@ namespace ProjetoAgenda
         {
             InitializeComponent();
         }
+
+        private void habilitarCadastrar()
+        {
+            if (tbxNome.Text != "" && tbxUsuario.Text != "" && tbxSenha.Text.Length > 8 && tbxSenha == tbxConfirm)
+            {
+                btnCadastrar.Enabled = true;
+            }
+            else
+            {
+                btnCadastrar.Enabled = false;
+            }
+
+        }
+
+        private void tbxNome_TextChanged(object sender, EventArgs e)
+        {
+            habilitarCadastrar();
+        }
+        private void tbxUsuario_TextChanged(object sender, EventArgs e)
+        {
+            habilitarCadastrar();
+        }
+        private void tbxTelefone_TextChanged(object sender, EventArgs e)
+        {
+            habilitarCadastrar();
+        }
+
+        private void tbxSenha_TextChanged(object sender, EventArgs e)
+        {
+            habilitarCadastrar();
+        }
+
+        private void tbxConfirm_TextChanged(object sender, EventArgs e)
+        {
+            habilitarCadastrar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
