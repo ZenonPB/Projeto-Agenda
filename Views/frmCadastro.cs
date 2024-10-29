@@ -21,9 +21,29 @@ namespace ProjetoAgenda
 
         private void habilitarCadastrar()
         {
+            bool isValid = false;
 
-            if(tbxNome.Text != "" && tbxUsuario.Text != "" && tbxTelefone.Text != "" && tbxSenha.Text.Length > 8 && tbxSenha.Text == tbxConfirm.Text);
+            // Checando se os critérios para cadastrar são atendidos
 
+            // Se o campo nome estiver vazio || Se o campo user tiver vazio || Se o campo telefone tiver vazio || Se a senha tiver menos que 8 caracteres|| Se a confirmacao for diferente
+            if (tbxNome.Text.Length <= 0 || tbxUsuario.Text.Length <= 0 || tbxTelefone.Text.Length <= 0 || tbxSenha.Text.Length < 8 || tbxConfirm.Text != tbxSenha.Text)
+            {
+                isValid = false;
+            }
+            else
+            {
+                isValid = true;
+            }
+
+
+            if (isValid == true)
+            {
+                btnCadastrar.Enabled = true;
+            }
+            else
+            {
+                btnCadastrar.Enabled = false;
+            }
         }
 
         private void tbxNome_TextChanged(object sender, EventArgs e)
@@ -58,7 +78,7 @@ namespace ProjetoAgenda
         {
             MySqlConnection conexao = conexaoDb.CriarConexao();
 
-            // abrindo conexao
+            // abrindo conexao  
             conexao.Open();
 
             // criando o comando pra inserir as informacoes
