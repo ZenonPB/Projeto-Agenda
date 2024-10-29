@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProjetoAgenda.Controllers;
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
@@ -76,30 +77,24 @@ namespace ProjetoAgenda
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            MySqlConnection conexao = conexaoDb.CriarConexao();
+            string nome = tbxNome.Text;
+            string usuario = tbxUsuario.Text;
+            string telefone = tbxTelefone.Text;
+            string senha = tbxSenha.Text;
 
-            // abrindo conexao  
-            conexao.Open();
+            UserController userController = new UserController();
 
-            // criando o comando pra inserir as informacoes
-            string sql = $"INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha)";
+            bool resultado = userController.AddUser(nome, usuario, telefone, senha);
 
-            // Criando o comando
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            if (resultado == true)
+            {
+                MessageBox.Show("Cadastro efetuado com sucesso!");
 
-            comando.Parameters.AddWithValue("@nome", tbxNome.Text);
-            comando.Parameters.AddWithValue("@usuario", tbxUsuario.Text);
-            comando.Parameters.AddWithValue("@telefone", tbxTelefone.Text);
-            comando.Parameters.AddWithValue("@senha", tbxSenha.Text);
-
-            // Executando o comando no banco de dados
-            comando.ExecuteNonQuery();
-
-            // fechando conexao
-            conexao.Close();
-
-            MessageBox.Show("Cadastrado com sucesso!");
-            this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível realizar o cadastro");
+            }
         }
     }
 }
