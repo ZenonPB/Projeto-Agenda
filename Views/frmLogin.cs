@@ -1,3 +1,6 @@
+using ProjetoAgenda.Controllers;
+using ProjetoAgenda.Views;
+
 namespace ProjetoAgenda
 {
     public partial class frmLogin : Form
@@ -35,6 +38,27 @@ namespace ProjetoAgenda
         private void tbxSenha_TextChanged(object sender, EventArgs e)
         {
             habilitarBotaoLogin();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmPrincipal frmPrincipal = new frmPrincipal();
+
+            string nome = tbxUsuario.Text;
+            string senha = tbxSenha.Text;
+            
+            UserController controleUsuario = new UserController();
+
+            bool resultado = controleUsuario.LoginUser(nome, senha);
+            if (resultado == true)
+            {
+                frmPrincipal.ShowDialog();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Houve um problema em entrar na sua conta! Verifique as informações");
+            }
         }
     }
 }
