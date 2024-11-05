@@ -96,5 +96,10 @@ namespace ProjetoAgenda
                 MessageBox.Show("Não foi possível realizar o cadastro");
             }
         }
+
+        private void frmCadastro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

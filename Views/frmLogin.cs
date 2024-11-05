@@ -42,22 +42,21 @@ namespace ProjetoAgenda
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // instanciando tanto o formulario quando a classe
             frmPrincipal frmPrincipal = new frmPrincipal();
+            UserController controleUsuario = new UserController();
 
+            // definindo os parametros pra funcao
             string nome = tbxUsuario.Text;
             string senha = tbxSenha.Text;
             
-            UserController controleUsuario = new UserController();
-
+            // checando se tudo deu certo ebaa
             bool resultado = controleUsuario.LoginUser(nome, senha);
             if (resultado == true)
             {
+                // abre o form principal se deu certinho
                 frmPrincipal.ShowDialog();
                 this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Houve um problema em entrar na sua conta! Verifique as informações");
             }
         }
     }
