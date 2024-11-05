@@ -16,5 +16,11 @@ namespace ProjetoAgenda.Views
         {
             InitializeComponent();
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddCtg frmAddCtg = new frmAddCtg();
+            frmAddCtg.Show();
+        }
     }
 }

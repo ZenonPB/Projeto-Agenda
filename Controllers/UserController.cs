@@ -14,6 +14,7 @@ namespace ProjetoAgenda.Controllers
         {
             try
             {
+                // abrir conexao no sql
 
                 MySqlConnection conexao = ConexaoDb.CriarConexao();
 
@@ -24,17 +25,20 @@ namespace ProjetoAgenda.Controllers
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
+                // definindo os parametros inseridos
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@telefone", telefone);
                 comando.Parameters.AddWithValue("@senha", senha);
 
+                // ver quantos foram afetados
                 int quantidadeAfetada = comando.ExecuteNonQuery();
 
                 conexao.Close();
 
                 if( quantidadeAfetada > 0)
                 {
+                    // se deu mais que 0, deu certo obviamente
                     return true;
                 }
                 else
@@ -76,6 +80,7 @@ namespace ProjetoAgenda.Controllers
                 else
                 {
                     conexao.Close();
+                    MessageBox.Show("Ocorreu um erro ao entrar! Revise seus dados e tente novamente");
                     return false;
                 }
 
