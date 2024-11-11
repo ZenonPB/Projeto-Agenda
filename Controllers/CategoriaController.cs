@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using ProjetoAgenda.Data;
 
 namespace ProjetoAgenda.Controllers
 {
-    internal class AddToDb
+    internal class CategoriaController
     {
         public bool AddCategoria(string nomeCtg)
         {
@@ -30,19 +31,7 @@ namespace ProjetoAgenda.Controllers
                 int quantidadeAfetada = comando.ExecuteNonQuery();
 
                 conexao.Close();
-
-                if (quantidadeAfetada > 0)
-                {
-                    // deu certo iupii
-                    MessageBox.Show("Categoria cadastrada com sucesso!");
-                    return true;
-                }
-                else
-                {
-                    // nao deu aaah:(
-                    MessageBox.Show("Ocorreu um erro! Tente novamente");
-                    return false;
-                }
+                return true;
 
             }
             catch (Exception erro)
@@ -53,5 +42,26 @@ namespace ProjetoAgenda.Controllers
             }
         }
        
+        public DataTable GetCategorias()
+        {
+            MySqlConnection conexao = null;
+
+            try
+            {
+                conexao = ConexaoDb.CriarConexao();
+
+                string sql = @"SELECT id AS 'Código', 
+                            categoria AS 'Categoria' 
+                            FROM tbCategorias;";
+
+                conexao.Open();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar categorias: {erro.Message}")
+            }
+        }
     }
 }

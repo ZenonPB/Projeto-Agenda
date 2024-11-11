@@ -22,5 +22,15 @@ namespace ProjetoAgenda.Views
             frmAddCtg frmAddCtg = new frmAddCtg();
             frmAddCtg.Show();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

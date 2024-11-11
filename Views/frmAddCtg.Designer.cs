@@ -32,6 +32,8 @@
             tbxNomeCtg = new TextBox();
             btnCadastro = new Button();
             btnLimpar = new Button();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // txtNomeCtg
@@ -49,6 +51,7 @@
             // 
             tbxNomeCtg.Location = new Point(14, 55);
             tbxNomeCtg.Name = "tbxNomeCtg";
+            tbxNomeCtg.PlaceholderText = "Nome da categoria";
             tbxNomeCtg.Size = new Size(219, 23);
             tbxNomeCtg.TabIndex = 1;
             tbxNomeCtg.TextChanged += tbxNomeCtg_TextChanged;
@@ -73,19 +76,29 @@
             btnLimpar.UseVisualStyleBackColor = true;
             btnLimpar.Click += btnLimpar_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(286, 12);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(233, 131);
+            dataGridView1.TabIndex = 4;
+            // 
             // frmAddCtg
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(250, 152);
+            ClientSize = new Size(534, 152);
+            Controls.Add(dataGridView1);
             Controls.Add(btnLimpar);
             Controls.Add(btnCadastro);
             Controls.Add(tbxNomeCtg);
             Controls.Add(txtNomeCtg);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "frmAddCtg";
             Text = "Adicionar Categoria";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -96,5 +109,6 @@
         private TextBox tbxNomeCtg;
         private Button btnCadastro;
         private Button btnLimpar;
+        private DataGridView dataGridView1;
     }
 }

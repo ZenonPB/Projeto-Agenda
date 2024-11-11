@@ -180,7 +180,7 @@
             Controls.Add(lblNome);
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmCadastro";
-            Text = "frmCadastro";
+            Text = "Cadastro";
             FormClosed += frmCadastro_FormClosed;
             ResumeLayout(false);
             PerformLayout();

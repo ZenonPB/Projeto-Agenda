@@ -25,9 +25,11 @@ namespace ProjetoAgenda.Views
         }
         private void btnCadastro_Click(object sender, EventArgs e)
         {
+            // definindo o parametro
             string nomeCtg = tbxNomeCtg.Text;
 
-            AddToDb addToDb = new AddToDb();
+            // instanciando a parada e adicionando no banco de dados tome
+            CategoriaController addToDb = new CategoriaController();
 
             bool resultado = addToDb.AddCategoria(nomeCtg);
 
