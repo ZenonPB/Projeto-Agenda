@@ -29,9 +29,12 @@ namespace ProjetoAgenda.Views
             string nomeCtg = tbxNomeCtg.Text;
 
             // instanciando a parada e adicionando no banco de dados tome
-            CategoriaController addToDb = new CategoriaController();
+            CategoriaController controleCategoria = new CategoriaController();
+            DataTable tabela = controleCategoria.GetCategorias();
+            dataGridView1.DataSource = tabela;
 
-            bool resultado = addToDb.AddCategoria(nomeCtg);
+            bool resultado = controleCategoria.AddCategoria(nomeCtg);
+
 
         }
 
@@ -40,5 +43,9 @@ namespace ProjetoAgenda.Views
             tbxNomeCtg.Text = "";
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -56,11 +56,27 @@ namespace ProjetoAgenda.Controllers
 
                 conexao.Open();
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, conexao);
+
+                // criando tabela vazia
+                DataTable tabela = new DataTable();
+
+                // preenchendo a tabela com os dados automaticamente ooooo coisa boa
+                adapter.Fill(tabela);
+
+                return tabela;
             }
             catch (Exception erro)
             {
-                MessageBox.Show($"Erro ao recuperar categorias: {erro.Message}")
+
+                // mensagem de erro e retornando uma tabela vazia, crua pra avisar que nao deu bom
+                MessageBox.Show($"Erro ao recuperar categorias: {erro.Message}");
+                return new DataTable();
+
+            }
+            finally
+            {
+                conexao.Close();
             }
         }
     }
