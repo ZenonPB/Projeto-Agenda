@@ -34,6 +34,8 @@
             cToolStripMenuItem = new ToolStripMenuItem();
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
+            usuáriosToolStripMenuItem = new ToolStripMenuItem();
+            gerenciarToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -61,7 +63,7 @@
             // 
             // cToolStripMenuItem
             // 
-            cToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem });
+            cToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, usuáriosToolStripMenuItem });
             cToolStripMenuItem.Name = "cToolStripMenuItem";
             cToolStripMenuItem.Size = new Size(49, 20);
             cToolStripMenuItem.Text = "&Editar";
@@ -76,9 +78,22 @@
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Size = new Size(130, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
+            // 
+            // usuáriosToolStripMenuItem
+            // 
+            usuáriosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gerenciarToolStripMenuItem });
+            usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
+            usuáriosToolStripMenuItem.Size = new Size(180, 22);
+            usuáriosToolStripMenuItem.Text = "Usuários";
+            // 
+            // gerenciarToolStripMenuItem
+            // 
+            gerenciarToolStripMenuItem.Name = "gerenciarToolStripMenuItem";
+            gerenciarToolStripMenuItem.Size = new Size(180, 22);
+            gerenciarToolStripMenuItem.Text = "Gerenciar";
             // 
             // frmPrincipal
             // 
@@ -105,5 +120,7 @@
         private ToolStripMenuItem cToolStripMenuItem;
         private ToolStripMenuItem cadastrarToolStripMenuItem;
         private ToolStripMenuItem categoriasToolStripMenuItem;
+        private ToolStripMenuItem usuáriosToolStripMenuItem;
+        private ToolStripMenuItem gerenciarToolStripMenuItem;
     }
 }

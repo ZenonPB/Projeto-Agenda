@@ -18,11 +18,6 @@ namespace ProjetoAgenda.Views
             InitializeComponent();
         }
 
-        private void tbxNomeCtg_TextChanged(object sender, EventArgs e)
-        {
-
-
-        }
         private void btnCadastro_Click(object sender, EventArgs e)
         {
             // definindo o parametro
@@ -37,20 +32,27 @@ namespace ProjetoAgenda.Views
 
         }
 
+        private void AtualizarTabela()
+        {
+            CategoriaController controleCategoria = new CategoriaController();
+            DataTable tabela = controleCategoria.GetCategorias();
+            dataGridView1.DataSource = tabela;
+        }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             tbxNomeCtg.Text = "";
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAtualizar_Click(object sender, EventArgs e)
         {
-
+            AtualizarTabela();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            frmExcludeCtg frmExcludeCtg = new frmExcludeCtg();
-            frmExcludeCtg.Show();
+            int id = (int)dataGridView1.SelectedCells[0].Value;
+            CategoriaController categoriaController = new CategoriaController();
+            categoriaController.RemoveCategoria(id);
         }
     }
 }
