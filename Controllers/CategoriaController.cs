@@ -13,10 +13,11 @@ namespace ProjetoAgenda.Controllers
     {
         public bool AddCategoria(string nomeCtg)
         {
+            MySqlConnection conexao = null;
             try
             {
                 // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
-                MySqlConnection conexao = ConexaoDb.CriarConexao();
+                conexao = ConexaoDb.CriarConexao();
 
                 string sql = "INSERT INTO tbCategorias (categoria) VALUES (@nomeCtg);";
 
@@ -29,6 +30,10 @@ namespace ProjetoAgenda.Controllers
 
                 // vendo a quantidade afetada e vendo se foi feito com sucesso ou nao
                 int quantidadeAfetada = comando.ExecuteNonQuery();
+                if( quantidadeAfetada > 0)
+                {
+                    MessageBox.Show("Categoria adicionada com sucesso!");
+                }
 
                 conexao.Close();
                 return true;
@@ -39,6 +44,13 @@ namespace ProjetoAgenda.Controllers
                 // se der erro mostra tlg
                 MessageBox.Show($"Erro ao efetuar o cadastro:{erro.Message}");
                 return false;
+            }
+            finally
+            {
+                if ( conexao != null)
+                {
+                    conexao.Close();
+                }
             }
         }
        
@@ -76,8 +88,42 @@ namespace ProjetoAgenda.Controllers
             }
             finally
             {
+               if( conexao != null)
+                {
+                    conexao.Close();
+                }
+            }
+        }
+
+        public bool RemoveCategoria(int idCategoria)
+        {
+            try
+            {
+                // Entrar e criar a conexao no SQL, inserindo o comando previsto na variavel sql
+                MySqlConnection conexao = ConexaoDb.CriarConexao();
+
+                string sql = "DELETE FROM tbCategorias WHERE id = @idCategoria;";
+
+                conexao.Open();
+
+                // adicionando os parametros e executando
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@idCategoria", idCategoria);
+                comando.ExecuteNonQuery();
+
+                MessageBox.Show("Categoria excluída com sucesso!");
                 conexao.Close();
+                return true;
+
+            }
+            catch (Exception erro)
+            {
+                // se der erro mostra tlg
+                MessageBox.Show($"Erro ao excluir a categoria! {erro.Message}");
+                return false;
             }
         }
     }
+
 }

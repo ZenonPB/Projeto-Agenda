@@ -72,7 +72,7 @@
             tbxUsuario.Margin = new Padding(3, 2, 3, 2);
             tbxUsuario.Name = "tbxUsuario";
             tbxUsuario.Size = new Size(279, 23);
-            tbxUsuario.TabIndex = 3;
+            tbxUsuario.TabIndex = 1;
             tbxUsuario.TextChanged += tbxUsuario_TextChanged;
             // 
             // btnLogin
@@ -82,7 +82,7 @@
             btnLogin.Margin = new Padding(3, 2, 3, 2);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(136, 43);
-            btnLogin.TabIndex = 4;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Entrar";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
@@ -93,7 +93,7 @@
             btnCadastro.Margin = new Padding(3, 2, 3, 2);
             btnCadastro.Name = "btnCadastro";
             btnCadastro.Size = new Size(136, 43);
-            btnCadastro.TabIndex = 5;
+            btnCadastro.TabIndex = 4;
             btnCadastro.Text = "Cadastrar";
             btnCadastro.UseVisualStyleBackColor = true;
             btnCadastro.Click += btnCadastro_Click;
@@ -110,6 +110,7 @@
             Controls.Add(tbxSenha);
             Controls.Add(lblSenha);
             Controls.Add(lblUsuario);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmLogin";
             Text = "Form1";

@@ -55,8 +55,8 @@ namespace ProjetoAgenda
             if (resultado == true)
             {
                 // abre o form principal se deu certinho
-                frmPrincipal.ShowDialog();
                 this.Hide();
+                frmPrincipal.Show();
             }
         }
     }
