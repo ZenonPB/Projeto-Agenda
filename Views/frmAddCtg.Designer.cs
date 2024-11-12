@@ -34,6 +34,7 @@
             btnLimpar = new Button();
             dataGridView1 = new DataGridView();
             btnExcluir = new Button();
+            btnAtualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -55,7 +56,6 @@
             tbxNomeCtg.PlaceholderText = "Nome da categoria";
             tbxNomeCtg.Size = new Size(219, 23);
             tbxNomeCtg.TabIndex = 1;
-            tbxNomeCtg.TextChanged += tbxNomeCtg_TextChanged;
             // 
             // btnCadastro
             // 
@@ -85,11 +85,10 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(233, 131);
             dataGridView1.TabIndex = 4;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // btnExcluir
             // 
-            btnExcluir.Location = new Point(541, 55);
+            btnExcluir.Location = new Point(542, 93);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(143, 42);
             btnExcluir.TabIndex = 5;
@@ -97,12 +96,23 @@
             btnExcluir.UseVisualStyleBackColor = true;
             btnExcluir.Click += btnExcluir_Click;
             // 
+            // btnAtualizar
+            // 
+            btnAtualizar.Location = new Point(542, 36);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(143, 42);
+            btnAtualizar.TabIndex = 6;
+            btnAtualizar.Text = "Atualizar tabela";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
             // frmAddCtg
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(706, 152);
+            Controls.Add(btnAtualizar);
             Controls.Add(btnExcluir);
             Controls.Add(dataGridView1);
             Controls.Add(btnLimpar);
@@ -125,5 +135,6 @@
         private Button btnLimpar;
         private DataGridView dataGridView1;
         private Button btnExcluir;
+        private Button btnAtualizar;
     }
 }
