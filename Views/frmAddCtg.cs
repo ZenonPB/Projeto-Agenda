@@ -30,11 +30,10 @@ namespace ProjetoAgenda.Views
 
             // instanciando a parada e adicionando no banco de dados tome
             CategoriaController controleCategoria = new CategoriaController();
+            controleCategoria.AddCategoria(nomeCtg);
+
             DataTable tabela = controleCategoria.GetCategorias();
             dataGridView1.DataSource = tabela;
-
-            bool resultado = controleCategoria.AddCategoria(nomeCtg);
-
 
         }
 
@@ -46,6 +45,12 @@ namespace ProjetoAgenda.Views
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            frmExcludeCtg frmExcludeCtg = new frmExcludeCtg();
+            frmExcludeCtg.Show();
         }
     }
 }
